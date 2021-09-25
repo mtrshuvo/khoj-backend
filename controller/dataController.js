@@ -17,17 +17,22 @@ module.exports.createData = async (req, res) => {
             return res.status(201).send("Success");
         }
         //checking data string already in payload array.
-        user.payload.forEach(async(data)=> {
-            if(data.input_data === req.body.input_data) {
-                return res.end();
-            }else{
-                user.payload.push(newData);
-                await user.save();
-                return res.status(201).send("Success")
+        let alreadyInData = false;
+        for(let i = 0; i < user.payload.length; i++){
+            if (user.payload[i].input_data === req.body.input_data){
+                alreadyInData = true;
+                break;
             }
-        })
-        
+        }
+       if(!alreadyInData){ 
+        user.payload.push(newData);
+        await user.save();
+        return res.status(201).send("Success");
+       } 
+       return res.end();
+           
     } catch (err) {
+        console.log(err);
         return res.status(400).send("Something Wrong");
     }
 };
