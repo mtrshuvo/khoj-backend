@@ -10,6 +10,6 @@ after successfully login jwt token will be created and stored in local storage.
 #For input values storing in DB api link: https://whispering-beyond-41355.herokuapp.com/api/data.
 ..also handled duplication of same input value. 
 #For getting input values api link: https://whispering-beyond-41355.herokuapp.com/api/data/:userid.
-Example: https://whispering-beyond-41355.herokuapp.com/api/data/614e16e501cfa89058fe2317
+Example: https://whispering-beyond-41355.herokuapp.com/api/data/614f4ce0961d4a4bae352a48
   
 
